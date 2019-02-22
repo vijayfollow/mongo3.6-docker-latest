@@ -1,13 +1,44 @@
 version: '2'
 
 services:
-  mongodb:
-    image: 'bitnami/mongodb:3.6'
-    ports:
-      - "27017:27017"
+  mongodb-primary:
+    image: 'bitnami/mongodb:latest'
+    environment:
+      - MONGODB_REPLICA_SET_MODE=primary
     volumes:
-      - 'mongodb_data:/bitnami'
+      - 'mongodb_master_data:/bitnami'
+
+  mongodb-secondary:
+    image: 'bitnami/mongodb:latest'
+    depends_on:
+      - mongodb-primary
+    environment:
+      - MONGODB_REPLICA_SET_MODE=secondary
+      - MONGODB_PRIMARY_HOST=mongodb-primary
+      - MONGODB_PRIMARY_PORT_NUMBER=27017
+
+  mongodb-arbiter:
+    image: 'bitnami/mongodb:latest'
+    depends_on:
+      - mongodb-primary
+    environment:
+      - MONGODB_REPLICA_SET_MODE=arbiter
+      - MONGODB_PRIMARY_HOST=mongodb-primary
+      - MONGODB_PRIMARY_PORT_NUMBER=27017
 
 volumes:
-  mongodb_data:
+  mongodb_master_data:
     driver: local
+
+
+#services:
+#  mongodb:
+#    image: 'bitnami/mongodb:3.6'
+#    ports:
+#      - "27017:27017"
+#    volumes:
+#      - 'mongodb_data:/bitnami'
+#
+#volumes:
+#  mongodb_data:
+#    driver: local

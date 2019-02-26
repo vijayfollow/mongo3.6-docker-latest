@@ -33,6 +33,6 @@ ENV BITNAMI_APP_NAME="mongodb" \
 
 EXPOSE 27017
 
-USER 1001
+#USER 1001
 ENTRYPOINT [ "/app-entrypoint.sh" ]
 CMD [ "/run.sh" ]

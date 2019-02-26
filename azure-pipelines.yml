@@ -20,7 +20,7 @@ steps:
 - script: docker images
   displayName: 'images list'
 
-- bash: docker-compose up
+- script: docker-compose up
   displayName: 'docker compose up command'
 
 #- script: |

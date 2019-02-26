@@ -13,5 +13,12 @@ variables:
   imageName: 'mongodb:$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
+#- script: docker build -f Dockerfile -t $(imageName) .
+#  displayName: 'docker build'
+- script: docker-compose up -d -f docker-compose.yml
   displayName: 'docker build'
+
+#- script: |
+#    docker-compose -f docker-compose.yml --project-directory . -p docs up -d
+#    docker wait docs_sut_1
+#    docker-compose -f docker-compose.yml --project-directory . down

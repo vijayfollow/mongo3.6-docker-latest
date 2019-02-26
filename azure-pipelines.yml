@@ -10,14 +10,18 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'mongodb:$(build.buildId)'
+  imageName: 'mongodb'
 
 steps:
+
+- script: docker build -f Dockerfile -t $(imageName) .
+  displayName: 'docker build'
+
+- script: docker images
+  displayName: 'images list'
+
 - bash: docker-compose up
   displayName: 'docker compose build'
-
-#- script: docker build -f Dockerfile -t $(imageName) .
-#  displayName: 'docker build'
 
 #- script: |
 #    docker-compose -f docker-compose.yml --project-directory . -p docs up -d

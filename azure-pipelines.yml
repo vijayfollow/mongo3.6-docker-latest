@@ -20,8 +20,8 @@ steps:
 - script: docker images
   displayName: 'images list'
 
-- bash: docker-compose -f docker-compose.yml build
-  displayName: 'docker compose build'
+- bash: docker-compose up
+  displayName: 'docker compose up command'
 
 #- script: |
 #    docker-compose -f docker-compose.yml --project-directory . -p docs up -d

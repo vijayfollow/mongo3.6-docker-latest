@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mongodb-primary:
-    image: ' .'
+    image: 'mongodb'
     environment:
       - MONGODB_REPLICA_SET_MODE=primary
     volumes:

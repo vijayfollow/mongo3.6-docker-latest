@@ -2,11 +2,12 @@ version: '2'
 
 services:
   mongodb-primary:
-    image: 'mongodb:latest'
+    image: 'mongodb'
     environment:
       - MONGODB_REPLICA_SET_MODE=primary
-    volumes:
-      - 'mongodb_master_data:/bitnami'
+      - MONGODB_PRIMARY_PORT_NUMBER=27017
+#    volumes:
+#      - 'mongodb_master_data:/bitnami'
 
   mongodb-secondary:
     image: 'mongodb'

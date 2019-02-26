@@ -2,7 +2,6 @@ version: '2'
 
 services:
   mongodb-primary:
-    build: ./Dockerfile
     image: 'mongodb:latest'
     environment:
       - MONGODB_REPLICA_SET_MODE=primary

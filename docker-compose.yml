@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mongodb-primary:
-    image: '\.'
+    image: 'bitnami/mongodb:latest'
     environment:
       - MONGODB_REPLICA_SET_MODE=primary
     volumes:

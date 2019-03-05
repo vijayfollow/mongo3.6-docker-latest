@@ -17,11 +17,11 @@ steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
 
-- script: docker images
-  displayName: 'images list'
+#- script: docker images
+#  displayName: 'images list'
 
-- script: docker-compose up -d;
-  displayName: 'docker compose build'
+#- script: docker-compose up -d;
+#  displayName: 'docker compose build'
 
 #- bash: docker-compose -f docker-compose.yml up
 #  displayName: 'docker compose build'

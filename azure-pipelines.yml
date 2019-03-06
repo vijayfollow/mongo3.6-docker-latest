@@ -17,21 +17,21 @@ steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
 
-- task: AmazonWebServices.aws-vsts-tools.ECRPushImage.ECRPushImage@1
-  displayName: 'Push Image: '
-  inputs:
-    awsCredentials: 'awsviji'
-    regionName: 'us-east-1'
-    sourceImageName: 'mongodb'
-    repositoryName: 'mongodb'
-    pushTag: 'latest'
-    autoCreateRepository: true
+#- task: AmazonWebServices.aws-vsts-tools.ECRPushImage.ECRPushImage@1
+#  displayName: 'Push Image: '
+#  inputs:
+#    awsCredentials: 'awsviji'
+#    regionName: 'us-east-1'
+#    sourceImageName: 'mongodb'
+#    repositoryName: 'mongodb'
+#    pushTag: 'latest'
+#    autoCreateRepository: true
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'drop' 
-    publishLocation: 'Container' 
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+#    artifactName: 'drop' 
+#    publishLocation: 'Container' 
     # Options: container, filePath
     #targetPath: # Required when publishLocation == FilePath
     #parallel: false # Optional

@@ -37,8 +37,8 @@ steps:
     #parallel: false # Optional
     #parallelCount: # Optional
 
-#- script: docker images
-#  displayName: 'images list'
+- script: docker images
+  displayName: 'images list'
 
 #- script: docker-compose up -d;
 #  displayName: 'docker compose build'
